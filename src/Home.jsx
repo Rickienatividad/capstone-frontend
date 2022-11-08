@@ -1,11 +1,11 @@
 export function Home() {
-  const handleIndex = () => {
+  const openIndex = () => {
     window.location.href = "/entryindex";
   };
   return (
     <div>
       <div>
-        <button onClick={handleIndex}>Recent Logs</button>
+        <button onClick={openIndex}>Recent Logs</button>
       </div>
       <div>
         <button>New Entry</button>
