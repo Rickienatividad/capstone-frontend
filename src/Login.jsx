@@ -1,5 +1,8 @@
 import axios from "axios";
-
+const jwt = localStorage.getItem("jwt");
+if (jwt) {
+  axios.defaults.headers.common["Authorization"] = `Bearer ${jwt}`;
+}
 export function Login() {
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -8,16 +11,24 @@ export function Login() {
     axios
       .post("http://localhost:3000/sessions.json", params)
       .then((response) => {
-        console.log("logged in.");
+        console.log(response.data);
+        axios.defaults.headers.common[
+          "Authorization"
+        ] = `Bearer ${response.data.jwt}`;
+        localStorage.setItem("jwt", response.data.jwt);
+        event.target.reset();
+      })
+      .catch((error) => {
+        console.log(error.response.data.errors);
       });
   };
   return (
     <div>
       <form onSubmit={handleSubmit}>
         <div>Email</div>
-        <input type="email" />
+        <input type="email" name="email" />
         <div>Password</div>
-        <input type="password" />
+        <input type="password" name="password" />
         <div>
           <button type="submit">Submit</button>
         </div>
