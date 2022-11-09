@@ -1,6 +1,14 @@
+import axios from "axios";
+import { useState } from "react";
+import { NewEntry } from "./NewEntry";
+
 export function Home() {
   const openIndex = () => {
     window.location.href = "/entryindex";
+  };
+
+  const handleCreateEntry = () => {
+    window.location.href = "/newentry";
   };
   return (
     <div>
@@ -8,7 +16,7 @@ export function Home() {
         <button onClick={openIndex}>Recent Logs</button>
       </div>
       <div>
-        <button>New Entry</button>
+        <button onClick={handleCreateEntry}>New Entry </button>
       </div>
     </div>
   );
