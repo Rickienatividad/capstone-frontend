@@ -20,6 +20,7 @@ export function Login() {
           "Authorization"
         ] = `Bearer ${response.data.jwt}`;
         localStorage.setItem("jwt", response.data.jwt);
+        localStorage.setItem("userId", response.data.user_id);
         event.target.reset();
         window.location.href = "/home";
       })
