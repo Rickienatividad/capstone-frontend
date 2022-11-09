@@ -1,4 +1,5 @@
 import axios from "axios";
+import { useState } from "react";
 
 export function EntryShow(props) {
   const handleSubmit = (event) => {
@@ -24,6 +25,12 @@ export function EntryShow(props) {
     window.location.href = "/entryindex";
   };
 
+  const [isVisible, setIsVisible] = useState(false);
+
+  const handleClick = () => {
+    setIsVisible((current) => !current);
+  };
+
   return (
     <div>
       <h1>Entry Data</h1>
@@ -31,33 +38,44 @@ export function EntryShow(props) {
       <h3>{props.entry.location}</h3>
       <h3>{props.entry.weather}</h3>
       <h3>{props.entry.notes}</h3>
+      <h4>Fish Caught:</h4>
       {props.entry.fish.map((fish) => {
         return (
           <div key={fish.id}>
-            <h4>{fish.species}</h4>
+            <ul>
+              <li>
+                <h4>{fish.species}</h4>
+              </li>
+            </ul>
           </div>
         );
       })}
-
-      <form onSubmit={handleSubmit}>
-        <h5>Update Entry</h5>
-        <input
-          type="hidden"
-          defaultValue={props.entry.user_id}
-          name="user_id"
-        />
-        <input type="date" name="date" />
-        <div>location</div>
-        <input type="text" name="location" />
-        <div>weather</div>
-        <input type="text" name="weather" />
-        <div>notes</div>
-        <textarea type="textarea" cols="25" rows="10" name="notes" />
-        <div>
-          <button>Submit</button>
-        </div>
-      </form>
-      <button onClick={handleDestroy}>Delete Entry</button>
+      <div>
+        <button onClick={handleDestroy}>Delete Entry</button>
+      </div>
+      <div>
+        <button onClick={handleClick}>Edit Entry</button>
+      </div>
+      <div style={{ visibility: isVisible ? "visible" : "hidden" }}>
+        <form onSubmit={handleSubmit}>
+          <h5>Update Entry</h5>
+          <input
+            type="hidden"
+            defaultValue={props.entry.user_id}
+            name="user_id"
+          />
+          <input type="date" name="date" />
+          <div>location</div>
+          <input type="text" name="location" />
+          <div>weather</div>
+          <input type="text" name="weather" />
+          <div>notes</div>
+          <textarea type="textarea" cols="25" rows="10" name="notes" />
+          <div>
+            <button>Submit</button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }
