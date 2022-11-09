@@ -19,6 +19,11 @@ export function EntryShow(props) {
       });
   };
 
+  const handleDestroy = () => {
+    axios.delete("http://localhost:3000/entries/" + props.entry.id);
+    window.location.href = "/entryindex";
+  };
+
   return (
     <div>
       <h1>Entry Data</h1>
@@ -52,6 +57,7 @@ export function EntryShow(props) {
           <button>Submit</button>
         </div>
       </form>
+      <button onClick={handleDestroy}>Delete Entry</button>
     </div>
   );
 }
