@@ -19,8 +19,8 @@ export function NewEntry() {
     <div>
       <h2>Entry Details</h2>
       <form onSubmit={handleSubmit}>
-        <div>user id</div>
-        <input type="text" defaultValue={userId} name="user_id" />
+        {/* <div>user id</div> */}
+        <input type="hidden" defaultValue={userId} name="user_id" />
         <div>date</div>
         <input type="date" name="date" />
         <div>location</div>
@@ -28,7 +28,7 @@ export function NewEntry() {
         <div>weather</div>
         <input type="text" name="weather" />
         <div>notes</div>
-        <input type="textarea" cols="10" rows="20" name="notes" />
+        <textarea type="textarea" cols="25" rows="10" name="notes" />
         <div>
           <button>Submit</button>
         </div>
