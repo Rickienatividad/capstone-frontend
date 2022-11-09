@@ -1,21 +1,12 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { Modal } from "./Modal";
+import { Logs } from "./Logs";
 
 export function EntryIndex() {
-  function Logs(props) {
-    return (
-      <div>
-        <h1>All Logs</h1>
-        {props.entries.map((entry) => (
-          <div className="entries" key={entry.id}>
-            <h3>{entry.date}</h3>
-          </div>
-        ))}
-      </div>
-    );
-  }
-
   const [entries, setEntries] = useState([]);
+  const [isEntryShowVisible, setIsEntryShowVisible] = useState(false);
+  const [currentEntry, setCurrentEntry] = useState({});
 
   const handleIndex = () => {
     axios
@@ -29,10 +20,20 @@ export function EntryIndex() {
   };
 
   useEffect(handleIndex, []);
+
+  const handleShow = () => {
+    setIsEntryShowVisible(true);
+  };
+
+  const hideShow = () => {
+    setIsEntryShowVisible(false);
+  };
+
   return (
     <div>
       {/* <button onClick={handleIndex}>Load Index</button> */}
-      <Logs entries={entries} />
+      <Logs entries={entries} onSelectEntry={handleShow} />
+      <Modal show={isEntryShowVisible} onClose={hideShow} />
     </div>
   );
 }
