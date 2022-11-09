@@ -25,10 +25,26 @@ export function EntryShow(props) {
     window.location.href = "/entryindex";
   };
 
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
 
   const handleClick = () => {
     setIsVisible((current) => !current);
+  };
+
+  ////////////////////////Fish
+  const [fishVisible, setFishVisible] = useState(true);
+  const fishClick = () => {
+    setFishVisible((current) => !current);
+  };
+
+  const handleFishSubmit = (event) => {
+    event.preventDefault();
+    const params = new FormData(event.target);
+
+    axios.post("http://localhost:3000/fishes.json", params).then((response) => {
+      console.log(response.data);
+      // window.location.href = "/entryindex";
+    });
   };
 
   return (
@@ -56,7 +72,10 @@ export function EntryShow(props) {
       <div>
         <button onClick={handleClick}>Edit Entry</button>
       </div>
-      <div style={{ visibility: isVisible ? "visible" : "hidden" }}>
+      <div>
+        <button onClick={fishClick}>Add a Fish</button>
+      </div>
+      <div style={{ display: isVisible ? "none" : "block" }}>
         <form onSubmit={handleSubmit}>
           <h5>Update Entry</h5>
           <input
@@ -70,9 +89,32 @@ export function EntryShow(props) {
           <div>weather</div>
           <input type="text" name="weather" />
           <div>notes</div>
-          <textarea type="textarea" cols="25" rows="10" name="notes" />
+          <textarea type="textarea" cols="25" rows="5" name="notes" />
           <div>
             <button>Submit</button>
+          </div>
+        </form>
+      </div>
+
+      <div style={{ display: fishVisible ? "none" : "block" }}>
+        <h5>Fish Details</h5>
+        <form onSubmit={handleFishSubmit}>
+          {/* <div>entry_id</div> */}
+          <input type="hidden" defaultValue={props.entry.id} name="entry_id" />
+          {/* <div>user_id</div> */}
+          <input
+            type="hidden"
+            defaultValue={props.entry.user_id}
+            name="user_id"
+          />
+          <div>species:</div>
+          <input type="text" name="species" />
+          <div>length:</div>
+          <input type="text" name="length" />
+          <div>weight:</div>
+          <input type="text" name="weight" />
+          <div>
+            <button type="submit">submit</button>
           </div>
         </form>
       </div>
