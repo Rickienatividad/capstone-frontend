@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { Modal } from "./Modal";
 import { Logs } from "./Logs";
+import { EntryShow } from "./EntryShow";
 
 export function EntryIndex() {
   const [entries, setEntries] = useState([]);
@@ -12,6 +13,7 @@ export function EntryIndex() {
     axios
       .get("http://localhost:3000/entries.json")
       .then((response) => {
+        console.log(response.data);
         setEntries(response.data);
       })
       .catch((error) => {
@@ -32,19 +34,9 @@ export function EntryIndex() {
 
   return (
     <div>
-      {/* <button onClick={handleIndex}>Load Index</button> */}
       <Logs entries={entries} onSelectEntry={handleShow} />
       <Modal show={isEntryShowVisible} onClose={hideShow}>
-        <h3>{currentEntry.location}</h3>
-        <h4>{currentEntry.weather}</h4>
-        {/* {currentEntry.fish.map((fish) => {
-          return (
-            <div key={fish.id}>
-              <h4>{fish.species}</h4>
-            </div>
-          );
-        })} */}
-        <p>{currentEntry.notes}</p>
+        <EntryShow entry={currentEntry} />
       </Modal>
     </div>
   );

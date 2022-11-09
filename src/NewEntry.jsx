@@ -1,4 +1,7 @@
 import axios from "axios";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { LatestEntry } from "./LatestEntry";
+
 export function NewEntry() {
   const userId = localStorage.getItem("userId");
 
@@ -10,6 +13,7 @@ export function NewEntry() {
       .post("http://localhost:3000/entries.json", params)
       .then((response) => {
         console.log(response.data);
+        window.location.href = "/lastentry";
       })
       .catch((error) => {
         console.log(error.response.data.errors);
