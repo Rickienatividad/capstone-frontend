@@ -21,8 +21,9 @@ export function EntryIndex() {
 
   useEffect(handleIndex, []);
 
-  const handleShow = () => {
+  const handleShow = (entry) => {
     setIsEntryShowVisible(true);
+    setCurrentEntry(entry);
   };
 
   const hideShow = () => {
@@ -33,7 +34,12 @@ export function EntryIndex() {
     <div>
       {/* <button onClick={handleIndex}>Load Index</button> */}
       <Logs entries={entries} onSelectEntry={handleShow} />
-      <Modal show={isEntryShowVisible} onClose={hideShow} />
+      <Modal show={isEntryShowVisible} onClose={hideShow}>
+        <h3>{currentEntry.location}</h3>
+        <h4>{currentEntry.weather}</h4>
+        <p>{currentEntry.lure}</p>
+        <p>{currentEntry.notes}</p>
+      </Modal>
     </div>
   );
 }

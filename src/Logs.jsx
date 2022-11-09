@@ -5,7 +5,7 @@ export function Logs(props) {
       {props.entries.map((entry) => (
         <div className="entries" key={entry.id}>
           <h2>{entry.date}</h2>
-          <button onClick={props.onSelectEntry}>Details</button>
+          <button onClick={() => props.onSelectEntry(entry)}>Details</button>
         </div>
       ))}
     </div>
