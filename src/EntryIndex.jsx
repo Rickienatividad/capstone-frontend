@@ -37,13 +37,13 @@ export function EntryIndex() {
       <Modal show={isEntryShowVisible} onClose={hideShow}>
         <h3>{currentEntry.location}</h3>
         <h4>{currentEntry.weather}</h4>
-        {currentEntry.fish.map((fish) => {
+        {/* {currentEntry.fish.map((fish) => {
           return (
             <div key={fish.id}>
               <h4>{fish.species}</h4>
             </div>
           );
-        })}
+        })} */}
         <p>{currentEntry.notes}</p>
       </Modal>
     </div>

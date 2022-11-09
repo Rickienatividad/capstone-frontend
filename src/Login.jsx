@@ -1,4 +1,8 @@
 import axios from "axios";
+import { Modal } from "./Modal";
+import { Signup } from "./Signup";
+import { useState } from "react";
+
 const jwt = localStorage.getItem("jwt");
 if (jwt) {
   axios.defaults.headers.common["Authorization"] = `Bearer ${jwt}`;
@@ -23,6 +27,16 @@ export function Login() {
         console.log(error.response.data.errors);
       });
   };
+
+  const [isSignupVisible, setIsSignupVisible] = useState(false);
+
+  const handleSignup = () => {
+    setIsSignupVisible(true);
+  };
+
+  const closeSignup = () => {
+    setIsSignupVisible(false);
+  };
   return (
     <div>
       <form onSubmit={handleSubmit}>
@@ -34,6 +48,15 @@ export function Login() {
           <button type="submit">Submit</button>
         </div>
       </form>
+      <p>
+        Not a member?{" "}
+        <a href="#" onClick={handleSignup}>
+          Sign Up
+        </a>
+      </p>
+      <Modal show={isSignupVisible} onClose={closeSignup}>
+        <Signup />
+      </Modal>
     </div>
   );
 }
