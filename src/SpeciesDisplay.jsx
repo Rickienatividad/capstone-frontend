@@ -1,10 +1,11 @@
 export function SpeciesDisplay(props) {
   return (
     <div>
+      <h3>Freshwater Species</h3>
       {props.species.map((specie) => (
         <div key={specie.id}>
           <a
-            onClick={props.onSelectSpecies}
+            onClick={() => props.onSelectSpecies(specie)}
             className="btn btn-light mb-2"
             href="#"
           >

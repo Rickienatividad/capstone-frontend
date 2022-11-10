@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { Modal } from "./Modal";
 import { SpeciesDisplay } from "./SpeciesDisplay";
+import { SpeciesShow } from "./SpeciesShow";
 
 export function SpeciesIndex() {
   const [species, setSpecies] = useState([]);
@@ -22,8 +23,9 @@ export function SpeciesIndex() {
 
   useEffect(handleSpeciesIndex, []);
 
-  const handleDisplay = () => {
+  const handleDisplay = (species) => {
     setIsSpeciesVisible(true);
+    setCurrentSpecies(species);
   };
 
   const hideDisplay = () => {
@@ -33,7 +35,7 @@ export function SpeciesIndex() {
     <div>
       <SpeciesDisplay species={species} onSelectSpecies={handleDisplay} />
       <Modal show={isSpeciesVisible} onClose={hideDisplay}>
-        <p>test</p>
+        <SpeciesShow species={currentSpecies} />
       </Modal>
     </div>
   );
