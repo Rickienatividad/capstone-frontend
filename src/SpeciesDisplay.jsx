@@ -3,7 +3,13 @@ export function SpeciesDisplay(props) {
     <div>
       {props.species.map((specie) => (
         <div key={specie.id}>
-          <a href="#">{specie.name}</a>
+          <a
+            onClick={props.onSelectSpecies}
+            className="btn btn-light mb-2"
+            href="#"
+          >
+            {specie.name.substring(0, 16)}
+          </a>
         </div>
       ))}
     </div>

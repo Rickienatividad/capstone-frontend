@@ -5,6 +5,8 @@ import { SpeciesDisplay } from "./SpeciesDisplay";
 
 export function SpeciesIndex() {
   const [species, setSpecies] = useState([]);
+  const [currentSpecies, setCurrentSpecies] = useState({});
+  const [isSpeciesVisible, setIsSpeciesVisible] = useState(false);
 
   const handleSpeciesIndex = () => {
     axios
@@ -20,10 +22,19 @@ export function SpeciesIndex() {
 
   useEffect(handleSpeciesIndex, []);
 
+  const handleDisplay = () => {
+    setIsSpeciesVisible(true);
+  };
+
+  const hideDisplay = () => {
+    setIsSpeciesVisible(false);
+  };
   return (
     <div>
-      <SpeciesDisplay species={species} />
-      <Modal />
+      <SpeciesDisplay species={species} onSelectSpecies={handleDisplay} />
+      <Modal show={isSpeciesVisible} onClose={hideDisplay}>
+        <p>test</p>
+      </Modal>
     </div>
   );
 }
