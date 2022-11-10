@@ -21,6 +21,7 @@ function App() {
           <Route path="/entryindex" element={<EntryIndex />} />
           <Route path="/newentry" element={<NewEntry />} />
           <Route path="/lastentry" element={<LatestEntry />} />
+          <Route path="/species" element={<SpeciesIndex />} />
         </Routes>
       </BrowserRouter>
     </div>
