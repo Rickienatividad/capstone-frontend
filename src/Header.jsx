@@ -48,8 +48,8 @@ export function Header() {
                   </a>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="#">
-                    Another action
+                  <a className="dropdown-item" href="/knots">
+                    Fishing Knots
                   </a>
                 </li>
                 <li>
