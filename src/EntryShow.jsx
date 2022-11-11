@@ -48,7 +48,7 @@ export function EntryShow(props) {
   };
 
   ////////////////////Chart
-  const [isChartVisible, setIsChartVisible] = useState(false);
+  const [isChartVisible, setIsChartVisible] = useState(true);
   const chartClick = () => {
     setIsChartVisible((current) => !current);
   };
