@@ -9,6 +9,7 @@ import { LatestEntry } from "./LatestEntry";
 import { Header } from "./Header";
 import { SpeciesIndex } from "./SpeciesIndex";
 import { SpeciesShow } from "./SpeciesShow";
+import { KnotPage } from "./KnotPage";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/newentry" element={<NewEntry />} />
           <Route path="/lastentry" element={<LatestEntry />} />
           <Route path="/species" element={<SpeciesIndex />} />
+          <Route path="/knots" element={<KnotPage />} />
         </Routes>
       </BrowserRouter>
     </div>
