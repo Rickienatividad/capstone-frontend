@@ -4,7 +4,9 @@ export function KnotIndex(props) {
       <h3>Popular Knots</h3>
       {props.knots.map((knot) => (
         <div key={knot.id}>
-          <a href="#">{knot.name}</a>
+          <a onClick={() => props.onSelectKnot(knot)} href="#">
+            {knot.name}
+          </a>
         </div>
       ))}
     </div>
