@@ -30,7 +30,14 @@ export function NewEntry() {
         <div>location</div>
         <input type="text" name="location" />
         <div>weather</div>
-        <input type="text" name="weather" />
+        {/* <input type="text" name="weather" /> */}
+        <input type="radio" id="hot" name="weather" value="hot" />
+        <label htmlFor="hot">Hot</label>
+        <input type="radio" id="cold" name="weather" value="cold" />
+        <label htmlFor="cold">Cold</label>
+        <input type="radio" id="mild" name="weather" value="mild" />
+        <label htmlFor="mild">Mild</label>
+
         <div>notes</div>
         <textarea type="textarea" cols="25" rows="10" name="notes" />
         <div>

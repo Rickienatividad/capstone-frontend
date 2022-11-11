@@ -54,6 +54,7 @@ export function EntryShow(props) {
       <h3>{props.entry.location}</h3>
       <h3>{props.entry.weather}</h3>
       <h3>{props.entry.notes}</h3>
+      <h3>Caught {props.entry.fish.length} 🐠 </h3>
       <h4>Fish Caught:</h4>
       {props.entry.fish.map((fish) => {
         return (
