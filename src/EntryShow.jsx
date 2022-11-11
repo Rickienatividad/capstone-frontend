@@ -47,6 +47,12 @@ export function EntryShow(props) {
     });
   };
 
+  ////////////////////Chart
+  const [isChartVisible, setIsChartVisible] = useState(false);
+  const chartClick = () => {
+    setIsChartVisible((current) => !current);
+  };
+
   return (
     <div>
       <h1>Entry Data</h1>
@@ -54,21 +60,58 @@ export function EntryShow(props) {
       <h3>{props.entry.location}</h3>
       <h3>{props.entry.weather}</h3>
       <h3>{props.entry.notes}</h3>
-      <h3>Caught {props.entry.fish.length} 🐠 </h3>
-      <h4>Fish Caught:</h4>
-      {props.entry.fish.map((fish) => {
-        return (
-          <div key={fish.id}>
-            <ul>
-              <li>
-                <h4>{fish.species}</h4>
-              </li>
-            </ul>
-          </div>
-        );
-      })}
+      <p>
+        Caught <strong onClick={chartClick}>{props.entry.fish.length} </strong>
+        🐠
+      </p>
+      {/* <h4>Fish Caught:</h4> */}
+      {/* {isFishVisible && (
+        <div className="bg-light">
+          {props.entry.fish.map((fish) => {
+            return (
+              <div key={fish.id}>
+                <ul>
+                  <li>
+                    <h4>{fish.species}</h4>
+                  </li>
+                </ul>
+              </div>
+            );
+          })}
+        </div>
+      )} */}
+
+      <span style={{ display: isChartVisible ? "none" : "block" }}>
+        <table>
+          <thead>
+            <h5>Fish Caught:</h5>
+            <tr>
+              <th className="firstrow th">Species</th>
+              <th className="secondrow th">Length</th>
+              <th className="thirdrow th">Weight</th>
+            </tr>
+          </thead>
+          <tbody>
+            {props.entry.fish.map((fish) => {
+              return (
+                <div key={fish.id}>
+                  <tr>
+                    <th className="fish-icon">🐠</th>
+                    <td className="firstdata">{fish.species}</td>
+                    <td className="seconddata">{fish.length}</td>
+                    <td className="thirddata">{fish.weight}</td>
+                  </tr>
+                </div>
+              );
+            })}
+          </tbody>
+        </table>
+      </span>
+
       <div>
-        <button onClick={handleDestroy}>Delete Entry</button>
+        <button className="mt-2" onClick={handleDestroy}>
+          Delete Entry
+        </button>
       </div>
       <div>
         <button onClick={handleClick}>Edit Entry</button>

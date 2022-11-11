@@ -32,6 +32,7 @@
   }
 }
 
+
 .card {
   padding: 2em;
 }
@@ -48,4 +49,53 @@
 .knot-img {
   height: 300px;
   width: 290px;
+}
+
+@media(max-width: 500px){
+.firstrow {
+  position: absolute;
+  margin-right: 10px;
+  width: 30px; 
+}
+
+.secondrow {
+  position: absolute;
+  margin-left: 85px;
+}
+
+.thirdrow{
+  position: absolute;
+  margin-left: 200px;
+}
+
+.fish-icon {
+  visibility: hidden;
+}
+
+.firstdata {
+  position: absolute;
+  width: 75px;
+  padding-right: 10px;
+  margin-top: 30px;
+}
+
+.seconddata {
+  position: absolute;
+  padding-left: 90px;
+  padding-right: 30px;
+  margin-top: 30px;
+}
+
+.thirddata {
+  position: absolute;
+  padding-left: 190px;
+  width: 90px;
+  margin-top: 30px;
+}
+}
+
+table {
+  background-color: #888;
+  width: 100%;
+  height: 200px;
 }
