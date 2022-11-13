@@ -39,14 +39,16 @@ export function Login() {
     setIsSignupVisible(false);
   };
   return (
-    <div>
+    <div className="mt-5 login-bg">
       <form onSubmit={handleSubmit}>
-        <div>Email</div>
-        <input type="email" name="email" />
+        <div className="pt-5">Email</div>
+        <input className="mb-3" type="email" name="email" />
         <div>Password</div>
-        <input type="password" name="password" />
+        <input className="mb-3" type="password" name="password" />
         <div>
-          <button type="submit">Submit</button>
+          <button className="btn btn-info mb-3" type="submit">
+            Submit
+          </button>
         </div>
       </form>
       <p>

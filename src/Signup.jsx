@@ -19,7 +19,7 @@ export function Signup() {
   return (
     <div>
       <h2>Sign Up</h2>
-      <form onSubmit={handleSubmit}>
+      <form className="signup-form" onSubmit={handleSubmit}>
         <div>Name</div>
         <input type="text" name="name" />
         <div>Email</div>
@@ -27,9 +27,11 @@ export function Signup() {
         <div>Password</div>
         <input type="password" name="password" />
         <div>Confirm Password</div>
-        <input type="password" name="password_confirmation" />
+        <input className="mb-3" type="password" name="password_confirmation" />
         <div>
-          <button type="submit">Submit</button>
+          <button className="btn btn-primary" type="submit">
+            Submit
+          </button>
         </div>
       </form>
     </div>

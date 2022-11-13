@@ -55,37 +55,34 @@ export function EntryShow(props) {
 
   return (
     <div>
-      <h1>Entry Data</h1>
-      <h2>{props.entry.date}</h2>
-      <h3>{props.entry.location}</h3>
-      <h3>{props.entry.weather}</h3>
-      <h3>{props.entry.notes}</h3>
-      <p>
-        Caught <strong onClick={chartClick}>{props.entry.fish.length} </strong>
-        🐠
+      <div className="trip-deets">
+        <h1 className="border-bottom border-info">Trip Details:</h1>
+        <p>
+          <span className="text-primary">{props.entry.date}</span>
+        </p>
+        <p>
+          Location: <span className="text-primary">{props.entry.location}</span>
+        </p>
+        <p>
+          Weather: <span className="text-primary">{props.entry.weather}</span>
+        </p>
+        <span className="notes-container">
+          <p>
+            Notes: <span className="text-primary">{props.entry.notes}</span>
+          </p>
+        </span>
+      </div>
+      <p className="bg-light">
+        You caught{" "}
+        <strong className="text-warning">{props.entry.fish.length} </strong>
+        fish. Click <strong onClick={chartClick}>here</strong> for details.
       </p>
-      {/* <h4>Fish Caught:</h4> */}
-      {/* {isFishVisible && (
-        <div className="bg-light">
-          {props.entry.fish.map((fish) => {
-            return (
-              <div key={fish.id}>
-                <ul>
-                  <li>
-                    <h4>{fish.species}</h4>
-                  </li>
-                </ul>
-              </div>
-            );
-          })}
-        </div>
-      )} */}
-
       <span style={{ display: isChartVisible ? "none" : "block" }}>
-        <table>
+        <table className="mb-2">
           <thead>
-            <h5>Fish Caught:</h5>
+            {/* <h5>Fish Caught:</h5> */}
             <tr>
+              <th className="thth"> </th>
               <th className="firstrow th">Species</th>
               <th className="secondrow th">Length</th>
               <th className="thirdrow th">Weight</th>
@@ -94,30 +91,35 @@ export function EntryShow(props) {
           <tbody>
             {props.entry.fish.map((fish) => {
               return (
-                <div key={fish.id}>
-                  <tr>
-                    <th className="fish-icon">🐠</th>
-                    <td className="firstdata">{fish.species}</td>
-                    <td className="seconddata">{fish.length}</td>
-                    <td className="thirddata">{fish.weight}</td>
-                  </tr>
-                </div>
+                // <div key={fish.id}>
+                <tr className="table-row">
+                  <th className="fish-icon">🐠</th>
+                  <td className="firstdata">{fish.species}</td>
+                  <td className="seconddata">{fish.length}</td>
+                  <td className="thirddata">{fish.weight}</td>
+                </tr>
+                // </div>
               );
             })}
           </tbody>
         </table>
       </span>
-
-      <div>
-        <button className="mt-2" onClick={handleDestroy}>
-          Delete Entry
-        </button>
-      </div>
-      <div>
-        <button onClick={handleClick}>Edit Entry</button>
-      </div>
-      <div>
-        <button onClick={fishClick}>Add a Fish</button>
+      <div id="flex-entry-buttons" className="d-flex justify-content-evenly">
+        <div>
+          <button className="btn btn-danger btn-sm" onClick={handleDestroy}>
+            Delete Entry
+          </button>
+        </div>
+        <div>
+          <button className="btn btn-info btn-sm" onClick={handleClick}>
+            Edit Entry
+          </button>
+        </div>
+        <div>
+          <button className="btn btn-info btn-sm" onClick={fishClick}>
+            Add a Fish
+          </button>
+        </div>
       </div>
       <div style={{ display: isVisible ? "none" : "block" }}>
         <form onSubmit={handleSubmit}>
