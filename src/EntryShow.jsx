@@ -129,13 +129,27 @@ export function EntryShow(props) {
             defaultValue={props.entry.user_id}
             name="user_id"
           />
-          <input type="date" name="date" />
+          <input type="date" name="date" defaultValue={props.entry.date} />
           <div>location</div>
-          <input type="text" name="location" />
+          <input
+            type="text"
+            name="location"
+            defaultValue={props.entry.location}
+          />
           <div>weather</div>
-          <input type="text" name="weather" />
+          <input
+            type="text"
+            name="weather"
+            defaultValue={props.entry.weather}
+          />
           <div>notes</div>
-          <textarea type="textarea" cols="25" rows="5" name="notes" />
+          <textarea
+            type="textarea"
+            cols="25"
+            rows="5"
+            name="notes"
+            defaultValue={props.entry.notes}
+          />
           <div>
             <button>Submit</button>
           </div>
