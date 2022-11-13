@@ -162,3 +162,10 @@ table {
 .species-list {
   overflow: auto;
 }
+
+.species-list h3 {
+  position: fixed;
+  width: 80%;
+  background: white;
+  border: 1px solid black;
+}

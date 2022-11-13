@@ -1,7 +1,8 @@
 export function SpeciesDisplay(props) {
   return (
-    <div className="login-bg species-list">
+    <div className="login-bg species-list mt-5">
       <h3>Freshwater Species</h3>
+      <div className="mt-5"></div>
       {props.species.map((specie) => (
         <div key={specie.id}>
           <a
