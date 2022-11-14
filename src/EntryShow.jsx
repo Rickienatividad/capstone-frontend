@@ -13,7 +13,7 @@ export function EntryShow(props) {
       )
       .then((response) => {
         console.log(response.data);
-        event.target.reset();
+        window.location.reload();
       })
       .catch((error) => {
         console.log(error.response.data.errors);
@@ -116,7 +116,7 @@ export function EntryShow(props) {
           </button>
         </div>
         <div>
-          <button className="btn btn-info btn-sm" onClick={fishClick}>
+          <button className="btn btn-info btn-sm " onClick={fishClick}>
             Add a Fish
           </button>
         </div>
@@ -157,8 +157,12 @@ export function EntryShow(props) {
       </div>
 
       <div style={{ display: fishVisible ? "none" : "block" }}>
-        <h5>Fish Details</h5>
-        <form onSubmit={handleFishSubmit}>
+        <h5 className="fish-h5">Fish Details</h5>
+        <form
+          className="bg-warning"
+          style={{ height: 350 }}
+          onSubmit={handleFishSubmit}
+        >
           {/* <div>entry_id</div> */}
           <input type="hidden" defaultValue={props.entry.id} name="entry_id" />
           {/* <div>user_id</div> */}
@@ -167,14 +171,16 @@ export function EntryShow(props) {
             defaultValue={props.entry.user_id}
             name="user_id"
           />
-          <div>species:</div>
+          <div className="pt-5">species:</div>
           <input type="text" name="species" />
           <div>length:</div>
           <input type="text" name="length" />
           <div>weight:</div>
           <input type="text" name="weight" />
           <div>
-            <button type="submit">submit</button>
+            <button className="btn btn-secondary mt-3" type="submit">
+              submit
+            </button>
           </div>
         </form>
       </div>

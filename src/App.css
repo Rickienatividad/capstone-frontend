@@ -169,3 +169,13 @@ table {
   background: white;
   border: 1px solid black;
 }
+
+/* add a fish */
+.fish-h5 {
+  font-size: 2.5rem;
+}
+
+/*hide other elements */
+.fader {
+  visibility: hidden;
+}
