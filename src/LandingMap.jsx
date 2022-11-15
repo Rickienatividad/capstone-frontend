@@ -57,7 +57,13 @@ export function LandingMap() {
 
         {rampsData.map((ramp) => (
           <div key={ramp.id}>
-            <Marker position={[ramp.latitude, ramp.longitude]} />
+            <Marker position={[ramp.latitude, ramp.longitude]}>
+              <Popup>
+                <h5>{ramp.name} Landing</h5>
+                <p>Address: {ramp.address}</p>
+                <p>County: {ramp.county}</p>
+              </Popup>
+            </Marker>
           </div>
         ))}
       </MapContainer>

@@ -184,3 +184,8 @@ table {
 .fader {
   visibility: hidden;
 }
+
+/*map */
+.leaflet-container {
+  right: 2rem;
+}
