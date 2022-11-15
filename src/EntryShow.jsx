@@ -91,14 +91,14 @@ export function EntryShow(props) {
           <tbody>
             {props.entry.fish.map((fish) => {
               return (
-                // <div key={fish.id}>
+                // <span key={fish.id}>
                 <tr className="table-row">
                   <th className="fish-icon">🐠</th>
                   <td className="firstdata">{fish.species}</td>
                   <td className="seconddata">{fish.length}</td>
                   <td className="thirddata">{fish.weight}</td>
                 </tr>
-                // </div>
+                // </span>
               );
             })}
           </tbody>

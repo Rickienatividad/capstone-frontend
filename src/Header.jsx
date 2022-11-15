@@ -1,6 +1,13 @@
+import axios from "axios";
 import { Link } from "react-router-dom";
 
 export function Header() {
+  const handleLogout = (event) => {
+    delete axios.defaults.headers.common["Authorization"];
+    localStorage.removeItem("jwt");
+    console.log("logged out");
+    window.location.href = "/";
+  };
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top">
       <div className="container-fluid">
@@ -26,8 +33,8 @@ export function Header() {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
-                Link
+              <a onClick={handleLogout} className="nav-link" href="#">
+                Logout
               </a>
             </li>
             <li className="nav-item dropdown">
