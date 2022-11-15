@@ -9,7 +9,7 @@ export function Header() {
     window.location.href = "/";
   };
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <nav className="navbar navbar-expand-lg navbar-light bg-info fixed-top">
       <div className="container-fluid">
         <a className="navbar-brand" href="/">
           RoR
@@ -32,11 +32,17 @@ export function Header() {
                 Home
               </a>
             </li>
-            <li className="nav-item">
-              <a onClick={handleLogout} className="nav-link" href="#">
-                Logout
-              </a>
-            </li>
+            {localStorage.jwt ? (
+              <>
+                <li className="nav-item">
+                  <a onClick={handleLogout} className="nav-link" href="#">
+                    Logout
+                  </a>
+                </li>
+              </>
+            ) : (
+              <></>
+            )}
             <li className="nav-item dropdown">
               <a
                 className="nav-link dropdown-toggle"
