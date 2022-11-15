@@ -7,7 +7,7 @@ export function SpeciesDisplay(props) {
         <div key={specie.id}>
           <a
             onClick={() => props.onSelectSpecies(specie)}
-            className="btn btn-light mb-2"
+            className="btn btn-light mb-2 mt-4"
             href="#"
           >
             {specie.name.substring(0, 16)}
