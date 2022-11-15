@@ -8,10 +8,11 @@ import {
 } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { statesData } from "./data";
+import { rampsData } from "./rampData";
 
 export function LandingMap() {
   return (
-    <div>
+    <div className="mt-3">
       <MapContainer
         center={[33.682527343697544, -80.55168163301227]}
         zoom={6}
@@ -53,6 +54,12 @@ export function LandingMap() {
             />
           );
         })}
+
+        {rampsData.map((ramp) => (
+          <div key={ramp.id}>
+            <Marker position={[ramp.latitude, ramp.longitude]} />
+          </div>
+        ))}
       </MapContainer>
     </div>
   );

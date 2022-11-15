@@ -56,8 +56,8 @@ export function Header() {
                   <hr className="dropdown-divider"></hr>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="#">
-                    Something else here
+                  <a className="dropdown-item" href="/map">
+                    SC Map
                   </a>
                 </li>
               </ul>
