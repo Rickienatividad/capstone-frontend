@@ -180,6 +180,12 @@ table {
   font-size: 2.5rem;
 }
 
+.fish-form {
+  background-color: rgb(29, 161, 228);
+  border: solid 3px red;
+  color: #fff;
+}
+
 /*hide other elements */
 .fader {
   visibility: hidden;

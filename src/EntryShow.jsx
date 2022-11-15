@@ -122,7 +122,7 @@ export function EntryShow(props) {
         </div>
       </div>
       <div style={{ display: isVisible ? "none" : "block" }}>
-        <form onSubmit={handleSubmit}>
+        <form className="fish-form mt-1 pt-2 pb-2" onSubmit={handleSubmit}>
           <h5>Update Entry</h5>
           <input
             type="hidden"
@@ -151,7 +151,7 @@ export function EntryShow(props) {
             defaultValue={props.entry.notes}
           />
           <div>
-            <button>Submit</button>
+            <button className="btn btn-info">Submit</button>
           </div>
         </form>
       </div>
@@ -159,7 +159,7 @@ export function EntryShow(props) {
       <div style={{ display: fishVisible ? "none" : "block" }}>
         <h5 className="fish-h5">Fish Details</h5>
         <form
-          className="bg-warning"
+          className="fish-form"
           style={{ height: 350 }}
           onSubmit={handleFishSubmit}
         >
@@ -178,7 +178,7 @@ export function EntryShow(props) {
           <div>weight:</div>
           <input type="text" name="weight" />
           <div>
-            <button className="btn btn-secondary mt-3" type="submit">
+            <button className="btn btn-info mt-3" type="submit">
               submit
             </button>
           </div>
