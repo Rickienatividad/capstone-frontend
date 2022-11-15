@@ -1,8 +1,10 @@
 import axios from "axios";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LatestEntry } from "./LatestEntry";
+import { useState } from "react";
 
 export function NewEntry() {
+  const [errors, setErrors] = useState([]);
   const userId = localStorage.getItem("userId");
 
   const handleSubmit = (event) => {
@@ -17,11 +19,17 @@ export function NewEntry() {
       })
       .catch((error) => {
         console.log(error.response.data.errors);
+        setErrors(error.response.data.errors);
       });
   };
   return (
     <div className="new-entry-bg">
       <div className="mt-5">
+        <ul>
+          {errors.map((error) => {
+            <li key={error}>{error}</li>;
+          })}
+        </ul>
         <h2 className="mb-3 pt-5">Entry Details</h2>
         <form onSubmit={handleSubmit}>
           {/* <div>user id</div> */}

@@ -2,8 +2,11 @@ import axios from "axios";
 import { useState } from "react";
 
 export function EntryShow(props) {
+  const [errors, setErrors] = useState([]);
+
   const handleSubmit = (event) => {
     event.preventDefault();
+    setErrors([]);
     const params = new FormData(event.target);
 
     axios
@@ -17,6 +20,8 @@ export function EntryShow(props) {
       })
       .catch((error) => {
         console.log(error.response.data.errors);
+        alert(error.response.data.errors);
+        setErrors(error.response.data.errors);
       });
   };
 

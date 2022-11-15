@@ -8,6 +8,7 @@ export function Logs(props) {
           .map((entry) => (
             <div className="entries border-bottom border-3 pb-3" key={entry.id}>
               <h2>Date: {entry.date}</h2>
+              <p>Location: {entry.location}</p>
               <button
                 className="btn btn-info"
                 onClick={() => props.onSelectEntry(entry)}
